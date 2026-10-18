@@ -36,7 +36,7 @@ export default function Home() {
                       href="#home"
                       className="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white"
                     >
-                      Beranda
+                      Home
                     </a>
                   </li>
                   <li className="group">
@@ -44,7 +44,7 @@ export default function Home() {
                       href="#about"
                       className="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white"
                     >
-                      Tentang
+                      About
                     </a>
                   </li>
                   <li className="group">
@@ -52,7 +52,7 @@ export default function Home() {
                       href="#portofolio"
                       className="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white"
                     >
-                      Porto
+                      Portfolio
                     </a>
                   </li>
                   <li className="group">
@@ -60,7 +60,7 @@ export default function Home() {
                       href="#client"
                       className="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white"
                     >
-                      Client
+                      Clients
                     </a>
                   </li>
                   <li className="group">
@@ -113,16 +113,16 @@ export default function Home() {
                 <span className="text-sm font-semibold text-primary">👋 Available for freelance work</span>
               </div>
               <h1 className="text-5xl font-bold text-dark dark:text-white md:text-6xl lg:text-7xl leading-tight mb-6">
-                Halo, Saya{" "}
+                Hi, I'm{" "}
                 <span className="bg-gradient-to-r from-primary via-blue-500 to-accent bg-clip-text text-transparent">
                   Gustafa
                 </span>
               </h1>
               <h2 className="text-2xl font-semibold text-secondary dark:text-slate-300 lg:text-3xl mb-6">
-                Full-Stack Developer & App Specialist
+                Full-Stack Developer & Mobile App Specialist
               </h2>
               <p className="text-lg leading-relaxed text-secondary dark:text-slate-400 mb-10 max-w-xl">
-                Transforming ideas into elegant solutions. Specialized in building modern web and mobile applications with clean code and exceptional user experiences.
+                I build web and mobile applications. From API design to polished interfaces, I handle the full stack and ship products that work.
               </p>
 
               <div className="flex flex-wrap gap-4">
@@ -167,16 +167,16 @@ export default function Home() {
                 <span className="text-sm font-semibold text-primary">About Me</span>
               </div>
               <h2 className="mb-6 text-4xl font-bold text-dark dark:text-white lg:text-5xl">
-                Passionate About Building{" "}
+                I Write Code That{" "}
                 <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  Great Software
+                  Actually Ships
                 </span>
               </h2>
               <p className="mb-6 text-lg leading-relaxed text-secondary dark:text-slate-300">
-                I'm a dedicated developer focused on creating exceptional digital experiences. With expertise in modern web technologies and a passion for clean, efficient code.
+                Five years building production applications. I work with React, Next.js, Node.js, and React Native—technologies that let me move fast without compromising quality.
               </p>
               <p className="text-lg leading-relaxed text-secondary dark:text-slate-300">
-                Let's collaborate to bring your ideas to life with innovative solutions and cutting-edge development practices.
+                Whether you need a landing page or a full SaaS platform, I focus on shipping working software, not endless planning cycles.
               </p>
               
               <div className="mt-10 grid grid-cols-3 gap-6">
@@ -355,7 +355,7 @@ export default function Home() {
                     Mobile Banking App
                   </h3>
                   <p className="text-base leading-relaxed text-secondary dark:text-slate-400 mb-4">
-                    Secure mobile banking application with biometric authentication and instant transactions.
+                    Banking app with fingerprint login, balance checking, and peer-to-peer transfers.
                   </p>
                   <a href="#" className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all">
                     View Project
@@ -388,7 +388,7 @@ export default function Home() {
                     SaaS Analytics Dashboard
                   </h3>
                   <p className="text-base leading-relaxed text-secondary dark:text-slate-400 mb-4">
-                    Data visualization platform with real-time metrics, custom reports, and team collaboration features.
+                    Analytics platform with Chart.js visualizations, CSV exports, and role-based access control.
                   </p>
                   <a href="#" className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all">
                     View Project
@@ -421,7 +421,7 @@ export default function Home() {
                     Social Media Platform
                   </h3>
                   <p className="text-base leading-relaxed text-secondary dark:text-slate-400 mb-4">
-                    Feature-rich social networking platform with stories, live streaming, and community engagement tools.
+                    Social network with photo feeds, direct messaging, and push notifications built on Firebase.
                   </p>
                   <a href="#" className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all">
                     View Project
@@ -455,7 +455,7 @@ export default function Home() {
                 </span>
               </h2>
               <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-                Proud to have worked with industry-leading companies to deliver exceptional solutions.
+                Companies I've worked with on web and mobile projects.
               </p>
             </div>
           </div>
@@ -581,11 +581,11 @@ export default function Home() {
                       href="#"
                       className="mb-3 block text-xl font-bold text-dark dark:text-white group-hover:text-primary transition-colors"
                     >
-                      Essential Developer Tools for 2026
+                      My Developer Setup for 2026
                     </a>
                   </h3>
                   <p className="mb-6 text-base leading-relaxed text-secondary dark:text-slate-400">
-                    Discover the must-have tools and extensions that boost productivity for modern developers.
+                    The VS Code extensions, terminal tools, and workflows I use daily to write better code.
                   </p>
                   <a
                     href="#"
@@ -627,11 +627,11 @@ export default function Home() {
                       href="#"
                       className="mb-3 block text-xl font-bold text-dark dark:text-white group-hover:text-primary transition-colors"
                     >
-                      Optimizing Web Performance
+                      Making Websites Load Faster
                     </a>
                   </h3>
                   <p className="mb-6 text-base leading-relaxed text-secondary dark:text-slate-400">
-                    Practical strategies to make your web applications faster and more efficient for users.
+                    Image optimization, code splitting, and caching strategies that actually moved the needle on load times.
                   </p>
                   <a
                     href="#"
@@ -659,13 +659,13 @@ export default function Home() {
                 <span className="text-sm font-semibold text-primary">Get In Touch</span>
               </div>
               <h2 className="mb-6 text-4xl font-bold text-dark dark:text-white sm:text-5xl">
-                Let's Work{" "}
+                Start a{" "}
                 <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  Together
+                  Project
                 </span>
               </h2>
               <p className="text-lg text-secondary dark:text-slate-300">
-                Have a project in mind? Let's discuss how I can help bring your ideas to life.
+                Got a project? Send me the details and I'll get back to you within 24 hours.
               </p>
             </div>
           </div>
@@ -799,7 +799,7 @@ export default function Home() {
                 Gustafa
               </h2>
               <p className="text-slate-400 leading-relaxed mb-6">
-                Full-stack developer passionate about creating exceptional digital experiences.
+                Developer focused on building web and mobile apps that work.
               </p>
               <div className="flex gap-3">
                 <a href="https://linkedin.com" target="_blank" className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center text-slate-400 hover:bg-primary hover:text-white transition-all">
