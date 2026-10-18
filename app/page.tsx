@@ -1,5 +1,4 @@
 import { SiteInteractions } from "../src/components/site-interactions";
-import { NinerouterChat } from "../src/components/ninerouter-chat";
 
 export default function Home() {
   return (
@@ -78,14 +77,6 @@ export default function Home() {
                       className="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white"
                     >
                       Contact
-                    </a>
-                  </li>
-                  <li className="group">
-                    <a
-                      href="#chat"
-                      className="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white"
-                    >
-                      AI Chat
                     </a>
                   </li>
                   <li className="mt-3 flex items-center pl-8 lg:mt-0">
@@ -495,8 +486,6 @@ export default function Home() {
           </form>
         </div>
       </section>
-
-      <NinerouterChat />
 
       <footer className="bg-dark pt-24 pb-12">
         <div className="container">
