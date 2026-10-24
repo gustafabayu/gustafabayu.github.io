@@ -79,22 +79,6 @@ export default function Home() {
                       Contact
                     </a>
                   </li>
-                  <li className="mt-3 flex items-center pl-8 lg:mt-0">
-                    <div className="flex">
-                      <span className="mr-2 text-sm text-slate-500">light</span>
-                      <input
-                        type="checkbox"
-                        className="hidden"
-                        id="dark-toggle"
-                      />
-                      <label htmlFor="dark-toggle">
-                        <div className="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1">
-                          <div className="toggle-circle h-4 w-4 rounded-full bg-white transition duration-300 ease-in-out"></div>
-                        </div>
-                      </label>
-                      <span className="ml-2 text-sm text-slate-500">dark</span>
-                    </div>
-                  </li>
                 </ul>
               </nav>
             </div>

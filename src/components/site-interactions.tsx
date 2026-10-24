@@ -7,14 +7,15 @@ export function SiteInteractions() {
     const header = document.querySelector<HTMLElement>("header");
     const hamburger = document.querySelector<HTMLButtonElement>("#hamburger");
     const navMenu = document.querySelector<HTMLElement>("#nav-menu");
-    const darkToggle = document.querySelector<HTMLInputElement>("#dark-toggle");
     const topPage = document.querySelector<HTMLAnchorElement>("#top-page");
 
-    if (!header || !hamburger || !navMenu || !darkToggle || !topPage) {
+    if (!header || !hamburger || !navMenu || !topPage) {
       throw new Error(
         "The page is missing an element required for site interactions."
       );
     }
+
+    document.documentElement.classList.add("dark");
 
     const closeMenu = () => {
       hamburger.classList.remove("hamburger-active");
@@ -49,29 +50,10 @@ export function SiteInteractions() {
       }
     };
 
-    const applyTheme = (isDark: boolean) => {
-      document.documentElement.classList.toggle("dark", isDark);
-      darkToggle.checked = isDark;
-    };
-
-    const savedTheme = localStorage.getItem("theme");
-    applyTheme(
-      savedTheme === "dark" ||
-        (savedTheme === null &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-    );
-
-    const handleThemeChange = () => {
-      const theme = darkToggle.checked ? "dark" : "light";
-      localStorage.setItem("theme", theme);
-      applyTheme(theme === "dark");
-    };
-
     hamburger.addEventListener("click", toggleMenu);
     navMenu.addEventListener("click", handleNavClick);
     window.addEventListener("click", handleWindowClick);
     window.addEventListener("scroll", updateScrollState, { passive: true });
-    darkToggle.addEventListener("change", handleThemeChange);
     updateScrollState();
 
     return () => {
@@ -79,7 +61,6 @@ export function SiteInteractions() {
       navMenu.removeEventListener("click", handleNavClick);
       window.removeEventListener("click", handleWindowClick);
       window.removeEventListener("scroll", updateScrollState);
-      darkToggle.removeEventListener("change", handleThemeChange);
     };
   }, []);
 
