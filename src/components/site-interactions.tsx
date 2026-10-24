@@ -15,8 +15,6 @@ export function SiteInteractions() {
       );
     }
 
-    document.documentElement.classList.add("dark");
-
     const closeMenu = () => {
       hamburger.classList.remove("hamburger-active");
       navMenu.classList.add("hidden");

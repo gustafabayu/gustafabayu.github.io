@@ -1,40 +1,52 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./app/**/*.{js,ts,jsx,tsx,mdx}", "./src/**/*.{js,ts,jsx,tsx,mdx}"],
-  darkMode: "class",
   theme: {
     container: {
       center: true,
-      padding: "16px",
+      padding: {
+        DEFAULT: "1.5rem",
+        sm: "2rem",
+      },
+      screens: {
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1200px",
+      },
     },
     extend: {
       colors: {
-        primary: "#3b82f6",
-        secondary: "#64748b",
-        dark: "#0f172a",
-        accent: "#8b5cf6",
+        bg: "#F7F6F2",
+        surface: "#FFFFFF",
+        ink: "#202321",
+        muted: "#747870",
+        border: "#DCDDD5",
+        accent: "#426B57",
+        "dark-surface": "#ECEDE7",
       },
-      screens: {
-        "2xl": "1320px",
+      fontFamily: {
+        sans: [
+          "var(--font-geist-sans)",
+          "Inter",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "sans-serif",
+        ],
+        mono: [
+          "var(--font-geist-mono)",
+          "Menlo",
+          "Monaco",
+          "Courier New",
+          "monospace",
+        ],
       },
-      animation: {
-        "fade-in": "fadeIn 0.6s ease-in-out",
-        "slide-up": "slideUp 0.5s ease-out",
-        "float": "float 3s ease-in-out infinite",
-      },
-      keyframes: {
-        fadeIn: {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
-        },
-        slideUp: {
-          "0%": { transform: "translateY(20px)", opacity: "0" },
-          "100%": { transform: "translateY(0)", opacity: "1" },
-        },
-        float: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
-        },
+      maxWidth: {
+        container: "1200px",
       },
     },
   },
