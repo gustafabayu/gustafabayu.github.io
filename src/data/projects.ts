@@ -6,7 +6,6 @@ export type Project = {
   role: string;
   technologies: string[];
   outcome?: string;
-  image?: string;
   links: {
     demo?: string;
     github?: string;
@@ -23,7 +22,6 @@ export const projects: Project[] = [
     role: "Full-stack development",
     technologies: ["Laravel", "Blade", "Queues"],
     outcome: "Secure registration and administration for a 2026 event.",
-    image: "/dist/img/architecture/stair.jpg",
     links: {
       github: "https://github.com/gustafabayu/huntbazaar-invitation-registration",
     },
@@ -35,7 +33,6 @@ export const projects: Project[] = [
     description: "A MySQL-backed book management service built to practice idiomatic Go, persistence, and API structure.",
     role: "Backend development",
     technologies: ["Go", "MySQL"],
-    image: "/dist/img/architecture/building.jpg",
     links: {
       github: "https://github.com/gustafabayu/go-bookstore",
     },
@@ -47,7 +44,6 @@ export const projects: Project[] = [
     description: "Spring Boot and PostgreSQL REST API focused on structured administration and backend API conventions.",
     role: "Backend development",
     technologies: ["Java", "Spring", "PostgreSQL"],
-    image: "/dist/img/architecture/concrete.jpg",
     links: {
       github: "https://github.com/gustafabayu/spring-adminhr",
     },
@@ -59,7 +55,6 @@ export const projects: Project[] = [
     description: "An order service built with Go, Chi, and Redis for exploring service boundaries and storage integration.",
     role: "Backend development",
     technologies: ["Go", "Chi", "Redis"],
-    image: "/dist/img/architecture/facade.jpg",
     links: {
       github: "https://github.com/gustafabayu/go-miserv-order",
     },
@@ -71,7 +66,6 @@ export const projects: Project[] = [
     description: "Membership REST service documented with OpenAPI and built around a maintainable Spring project structure.",
     role: "Backend development",
     technologies: ["Java", "Spring", "OpenAPI"],
-    image: "/dist/img/architecture/stair.jpg",
     links: {
       github: "https://github.com/gustafabayu/spring-membership",
     },
