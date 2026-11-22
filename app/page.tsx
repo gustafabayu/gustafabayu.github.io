@@ -3,14 +3,14 @@ import { projects } from "../src/data/projects";
 
 export default function Home() {
   return (
-    <div className="manual-site">
+    <div className="print-site">
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
-      <header className="manual-header">
+      <header className="print-header">
         <div className="header-inner">
           <a className="wordmark" href="#home" aria-label="Gustafa Bayu, home">
-            Gustafa Bayu
+            Gustafa Bayu <span>/ Application developer</span>
           </a>
           <nav className="site-nav" aria-label="Primary navigation">
             <a href="#work">Work</a>
@@ -18,7 +18,7 @@ export default function Home() {
             <a href="#about">About</a>
           </nav>
           <a className="header-contact" href="#contact">
-            Start a project
+            Let&apos;s talk
           </a>
         </div>
       </header>
@@ -28,9 +28,9 @@ export default function Home() {
           <div className="opening-grid">
             <div className="opening-copy">
               <h1 id="opening-title">
-                I build
+                Built in <span>layers.</span>
                 <br />
-                <span>software.</span>
+                Made to <span className="title-highlight">work.</span>
               </h1>
               <p className="opening-intro">
                 Application developer focused on backend systems, APIs, and web
@@ -52,6 +52,13 @@ export default function Home() {
                   Browse the work
                 </a>
               </div>
+            </div>
+
+            <div className="print-art" aria-hidden="true">
+              <span className="ink-plate ink-plate-pink" />
+              <span className="ink-plate ink-plate-yellow" />
+              <span className="ink-plate ink-plate-blue" />
+              <span className="registration-mark" />
             </div>
 
             <section id="work" className="work-section" aria-labelledby="work-title">
