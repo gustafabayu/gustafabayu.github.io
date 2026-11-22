@@ -5,3 +5,5 @@ out/
 next-env.d.ts
 .taste-skill/
 /AGENTS.md
+/.impeccable/mocks/decision/
+/.impeccable/review/

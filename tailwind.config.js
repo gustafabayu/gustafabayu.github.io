@@ -17,24 +17,15 @@ module.exports = {
     },
     extend: {
       colors: {
-        bg: "#F2F3EF",
-        surface: "#FFFFFF",
-        ink: "#1F2421",
-        muted: "#626963",
-        border: "#D8DDD7",
-        accent: "#2F6B50",
-        "dark-surface": "#E8ECE7",
+        cobalt: "#1E45D6",
+        signal: "#F0F83D",
+        paper: "#F4F3EB",
+        graphite: "#22241F",
+        rule: "#D3D2C8",
       },
       fontFamily: {
-        sans: [
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "Segoe UI",
-          "Roboto",
-          "Helvetica Neue",
-          "Arial",
-          "sans-serif",
-        ],
+        sans: ["var(--font-body)", "Arial", "sans-serif"],
+        display: ["var(--font-display)", "Arial", "sans-serif"],
         mono: [
           "var(--font-geist-mono)",
           "Menlo",
