@@ -18,26 +18,102 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-sans;
   }
+
+  :focus-visible {
+    outline: 3px solid theme("colors.accent");
+    outline-offset: 4px;
+  }
+
+  html {
+    scroll-padding-top: 24px;
+  }
 }
 
 @layer utilities {
   .navbar-fixed {
-    @apply fixed z-50 bg-bg/80 backdrop-blur-sm;
-    box-shadow: inset 0 -1px 0 0 theme('colors.border');
+    @apply fixed z-50 bg-bg;
   }
 
-  .hamburger-line {
-    @apply my-1.5 block h-0.5 w-7 bg-ink transition-all duration-300;
+  .site-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 47%) minmax(0, 53%);
   }
 
-  .hamburger-active > span:nth-child(1) {
-    @apply rotate-45 translate-y-2;
+  .fixed-media {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    align-self: start;
   }
-  .hamburger-active > span:nth-child(2) {
-    @apply opacity-0;
+
+  .project-row {
+    min-height: 64px;
   }
-  .hamburger-active > span:nth-child(3) {
-    @apply -rotate-45 -translate-y-2;
+
+  .project-row:focus-visible,
+  .project-row:hover {
+    background: #ecede7;
+  }
+
+  .project-row.is-muted {
+    opacity: 0.45;
+  }
+
+  .fixed-media img {
+    animation: architecture-drift 16s ease-in-out infinite alternate;
+  }
+
+  @keyframes architecture-drift {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.035);
+    }
+  }
+
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .js .scroll-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  .js .scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 600ms ease, transform 600ms ease;
+  }
+
+  .js .project-row {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  .js .project-row.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 500ms ease, transform 500ms ease;
+  }
+
+  @media (max-width: 1023px) {
+    .site-shell {
+      display: block;
+    }
+
+    .fixed-media {
+      position: relative;
+      height: 58svh;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .fixed-media {
+      height: 52svh;
+    }
   }
 }
 
@@ -48,5 +124,9 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .fixed-media img {
+    animation: none !important;
   }
 }
