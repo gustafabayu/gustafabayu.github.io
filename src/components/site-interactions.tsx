@@ -4,61 +4,69 @@ import { useEffect } from "react";
 
 export function SiteInteractions() {
   useEffect(() => {
-    const header = document.querySelector<HTMLElement>("header");
-    const hamburger = document.querySelector<HTMLButtonElement>("#hamburger");
-    const navMenu = document.querySelector<HTMLElement>("#nav-menu");
-    const topPage = document.querySelector<HTMLAnchorElement>("#top-page");
+    document.documentElement.classList.add("js");
 
-    if (!header || !hamburger || !navMenu || !topPage) {
-      throw new Error(
-        "The page is missing an element required for site interactions."
-      );
+    const header = document.querySelector<HTMLElement>("header");
+    const fixedImage = document.querySelector<HTMLImageElement>(
+      "#fixed-project-image"
+    );
+    const projectRows = Array.from(
+      document.querySelectorAll<HTMLAnchorElement>("[data-project-image]")
+    );
+    const reveals = Array.from(
+      document.querySelectorAll<HTMLElement>(".scroll-reveal")
+    );
+    const projectRevealRows = Array.from(
+      document.querySelectorAll<HTMLElement>(".project-row")
+    );
+
+    if (header) {
+      const updateHeader = () => {
+        header.classList.toggle("navbar-fixed", window.scrollY > 24);
+      };
+      window.addEventListener("scroll", updateHeader, { passive: true });
+      updateHeader();
     }
 
-    const closeMenu = () => {
-      hamburger.classList.remove("hamburger-active");
-      navMenu.classList.add("hidden");
-    };
+    if (fixedImage) {
+      projectRows.forEach((row) => {
+        const showProjectImage = () => {
+          const image = row.dataset.projectImage;
+          if (image && fixedImage.getAttribute("src") !== image) {
+            fixedImage.style.opacity = "0";
+            fixedImage.style.transition = "opacity 150ms ease";
+            window.setTimeout(() => {
+              fixedImage.src = image;
+              fixedImage.alt = row.dataset.projectAlt || "Project preview";
+              fixedImage.style.opacity = "1";
+            }, 150);
+          }
+          projectRows.forEach((otherRow) => {
+            otherRow.classList.toggle("is-muted", otherRow !== row);
+          });
+        };
+        row.addEventListener("mouseenter", showProjectImage);
+        row.addEventListener("focus", showProjectImage);
+      });
+    }
 
-    const updateScrollState = () => {
-      const isScrolled = window.scrollY > header.offsetTop;
-      header.classList.toggle("navbar-fixed", isScrolled);
-      topPage.classList.toggle("flex", isScrolled);
-      topPage.classList.toggle("hidden", !isScrolled);
-    };
-
-    const toggleMenu = () => {
-      const isOpen = hamburger.classList.toggle("hamburger-active");
-      navMenu.classList.toggle("hidden", !isOpen);
-    };
-
-    const handleWindowClick = (event: MouseEvent) => {
-      if (
-        event.target instanceof Node &&
-        !hamburger.contains(event.target) &&
-        !navMenu.contains(event.target)
-      ) {
-        closeMenu();
-      }
-    };
-
-    const handleNavClick = (event: MouseEvent) => {
-      if (event.target instanceof Element && event.target.closest("a")) {
-        closeMenu();
-      }
-    };
-
-    hamburger.addEventListener("click", toggleMenu);
-    navMenu.addEventListener("click", handleNavClick);
-    window.addEventListener("click", handleWindowClick);
-    window.addEventListener("scroll", updateScrollState, { passive: true });
-    updateScrollState();
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.14 }
+    );
+    reveals.forEach((section) => revealObserver.observe(section));
+    projectRevealRows.forEach((row) => revealObserver.observe(row));
 
     return () => {
-      hamburger.removeEventListener("click", toggleMenu);
-      navMenu.removeEventListener("click", handleNavClick);
-      window.removeEventListener("click", handleWindowClick);
-      window.removeEventListener("scroll", updateScrollState);
+      revealObserver.disconnect();
+      document.documentElement.classList.remove("js");
     };
   }, []);
 

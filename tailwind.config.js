@@ -17,18 +17,16 @@ module.exports = {
     },
     extend: {
       colors: {
-        bg: "#F7F6F2",
+        bg: "#F2F3EF",
         surface: "#FFFFFF",
-        ink: "#202321",
-        muted: "#747870",
-        border: "#DCDDD5",
-        accent: "#426B57",
-        "dark-surface": "#ECEDE7",
+        ink: "#1F2421",
+        muted: "#626963",
+        border: "#D8DDD7",
+        accent: "#2F6B50",
+        "dark-surface": "#E8ECE7",
       },
       fontFamily: {
         sans: [
-          "var(--font-geist-sans)",
-          "Inter",
           "-apple-system",
           "BlinkMacSystemFont",
           "Segoe UI",
