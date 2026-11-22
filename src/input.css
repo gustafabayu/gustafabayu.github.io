@@ -4,12 +4,14 @@
 
 :root {
   color-scheme: light;
-  --cobalt: #1e45d6;
-  --signal: #f0f83d;
-  --paper: #f4f3eb;
-  --paper-deep: #e9e8dd;
-  --graphite: #22241f;
-  --rule: #d3d2c8;
+  --paper: #fff6e8;
+  --paper-raised: #fffaf2;
+  --paper-shade: #f0e2cd;
+  --pink: #ff3ea5;
+  --blue: #1e4fff;
+  --yellow: #ffd22a;
+  --ink: #17243a;
+  --ink-soft: #42506a;
   --body-font: var(--font-body), Arial, sans-serif;
   --display-font: var(--font-display), Arial, sans-serif;
 }
@@ -21,13 +23,13 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 6rem;
-  background: var(--cobalt);
+  background: var(--paper);
 }
 
 body {
   margin: 0;
-  background: var(--cobalt);
-  color: var(--graphite);
+  background: var(--paper);
+  color: var(--ink);
   font-family: var(--body-font);
   font-size: 1rem;
   line-height: 1.6;
@@ -36,8 +38,8 @@ body {
 }
 
 ::selection {
-  background: var(--signal);
-  color: var(--graphite);
+  color: var(--ink);
+  background: var(--yellow);
 }
 
 a {
@@ -45,7 +47,7 @@ a {
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
   touch-action: manipulation;
-  -webkit-tap-highlight-color: rgb(240 248 61 / 45%);
+  -webkit-tap-highlight-color: rgb(255 62 165 / 30%);
   transition:
     background-color 180ms ease-out,
     color 180ms ease-out,
@@ -56,12 +58,12 @@ button {
   color: inherit;
   font: inherit;
   touch-action: manipulation;
-  -webkit-tap-highlight-color: rgb(240 248 61 / 45%);
+  -webkit-tap-highlight-color: rgb(255 62 165 / 30%);
 }
 
 button:focus-visible,
 a:focus-visible {
-  outline: 3px solid var(--cobalt);
+  outline: 3px solid var(--blue);
   outline-offset: 4px;
 }
 
@@ -71,8 +73,8 @@ a:focus-visible {
   top: 0.75rem;
   left: 0.75rem;
   padding: 0.65rem 0.9rem;
-  color: var(--graphite);
-  background: var(--signal);
+  color: var(--paper);
+  background: var(--blue);
   font-weight: 700;
   text-decoration: none;
   transform: translateY(calc(-100% - 1rem));
@@ -82,13 +84,12 @@ a:focus-visible {
   transform: translateY(0);
 }
 
-.manual-header {
+.print-header {
   position: sticky;
   z-index: 20;
   top: 0;
-  color: #fff;
-  background: var(--cobalt);
-  border-bottom: 1px solid rgb(255 255 255 / 28%);
+  background: var(--paper);
+  border-bottom: 2px solid var(--blue);
 }
 
 .header-inner {
@@ -103,13 +104,21 @@ a:focus-visible {
 
 .wordmark {
   width: fit-content;
-  color: #fff;
+  color: var(--blue);
   font-family: var(--display-font);
   font-size: 1.35rem;
   font-weight: 700;
-  letter-spacing: 0.025em;
+  letter-spacing: 0.015em;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+.wordmark span {
+  color: var(--ink-soft);
+  font-family: var(--body-font);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
 }
 
 .site-nav {
@@ -121,14 +130,19 @@ a:focus-visible {
 .site-nav a,
 .site-footer a {
   font-size: 0.92rem;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
+}
+
+.site-nav a {
+  color: var(--blue);
 }
 
 .site-nav a:hover,
 .work-action:hover,
-.contact-actions > a:last-child:hover {
-  color: var(--signal);
+.source-link:hover {
+  color: var(--blue);
+  text-decoration-color: var(--pink);
 }
 
 .header-contact,
@@ -139,8 +153,8 @@ a:focus-visible {
   gap: 0.75rem;
   min-height: 48px;
   padding: 0.7rem 1.1rem;
-  color: var(--graphite);
-  background: var(--signal);
+  color: var(--paper);
+  background: var(--blue);
   font-size: 0.94rem;
   font-weight: 700;
   text-decoration: none;
@@ -148,27 +162,30 @@ a:focus-visible {
 
 .header-contact:hover,
 .primary-action:hover {
-  background: #fff;
+  color: var(--ink);
+  background: var(--yellow);
 }
 
 .opening-section {
-  color: #fff;
-  background: var(--cobalt);
+  background: var(--paper);
 }
 
 .opening-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  grid-template-areas:
+    "copy art"
+    "work work";
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.9fr);
   align-items: center;
-  gap: clamp(2.5rem, 5.2vw, 5.75rem);
+  gap: clamp(2.5rem, 5vw, 4.5rem) clamp(2rem, 5vw, 5rem);
   width: min(100% - 4.5rem, 1440px);
-  min-height: min(790px, calc(100svh - 76px));
   margin-inline: auto;
-  padding-block: clamp(3rem, 6vw, 5.75rem);
+  padding-block: clamp(3.5rem, 7vw, 6rem);
 }
 
 .opening-copy {
-  max-width: 36rem;
+  grid-area: copy;
+  max-width: 46rem;
 }
 
 .opening-copy h1,
@@ -183,18 +200,23 @@ a:focus-visible {
 }
 
 .opening-copy h1 {
-  font-size: clamp(4.25rem, 7.2vw, 6rem);
-  line-height: 0.88;
+  color: var(--blue);
+  font-size: clamp(4.15rem, 7.3vw, 6.6rem);
+  line-height: 0.9;
 }
 
-.opening-copy h1 span {
-  color: var(--signal);
+.title-highlight {
+  display: inline-block;
+  padding: 0.015em 0.1em 0.055em;
+  color: var(--ink);
+  background: var(--pink);
+  transform: rotate(-1.5deg);
 }
 
 .opening-intro {
-  max-width: 40ch;
-  margin: 2rem 0 0;
-  color: #fff;
+  max-width: 43ch;
+  margin: 1.75rem 0 0;
+  color: var(--ink-soft);
   font-size: clamp(1.05rem, 1.45vw, 1.2rem);
   line-height: 1.65;
 }
@@ -205,7 +227,7 @@ a:focus-visible {
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem 1.5rem;
-  margin-top: 2rem;
+  margin-top: 1.75rem;
 }
 
 .opening-actions .primary-action svg,
@@ -229,19 +251,134 @@ a:focus-visible {
 }
 
 .work-action {
-  color: #fff;
+  color: var(--blue);
   font-size: 0.96rem;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 0.3em;
 }
 
+.opening-actions .primary-action:focus-visible,
+.contact-actions .primary-action:focus-visible {
+  outline-color: var(--paper);
+}
+
+.print-art {
+  position: relative;
+  grid-area: art;
+  width: min(100%, 34rem);
+  min-height: clamp(18rem, 34vw, 27rem);
+  justify-self: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.print-art::before,
+.print-art::after,
+.registration-mark::before,
+.registration-mark::after {
+  position: absolute;
+  display: block;
+  content: "";
+}
+
+.print-art::before {
+  top: 5%;
+  right: 7%;
+  width: 1.3rem;
+  height: 1.3rem;
+  background:
+    linear-gradient(var(--blue), var(--blue)) center / 1px 100% no-repeat,
+    linear-gradient(var(--blue), var(--blue)) center / 100% 1px no-repeat;
+}
+
+.print-art::after {
+  bottom: 4%;
+  left: 7%;
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 1px solid var(--blue);
+  border-radius: 50%;
+}
+
+.ink-plate {
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  mix-blend-mode: multiply;
+}
+
+.ink-plate::after {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgb(255 246 232 / 55%) 1px, transparent 1.45px);
+  background-size: 8px 8px;
+  content: "";
+}
+
+.ink-plate-pink {
+  top: 6%;
+  left: 18%;
+  width: 68%;
+  height: 68%;
+  border-radius: 48% 52% 42% 58%;
+  background: var(--pink);
+  transform: rotate(-9deg);
+}
+
+.ink-plate-yellow {
+  top: 24%;
+  left: 4%;
+  width: 43%;
+  height: 43%;
+  border-radius: 12% 48% 14% 48%;
+  background: var(--yellow);
+  transform: rotate(-13deg);
+}
+
+.ink-plate-blue {
+  right: 5%;
+  bottom: 7%;
+  width: 62%;
+  height: 42%;
+  border-radius: 48% 12% 50% 12%;
+  background: var(--blue);
+  transform: rotate(7deg);
+}
+
+.registration-mark {
+  position: absolute;
+  z-index: 1;
+  top: 14%;
+  left: 10%;
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.registration-mark::before,
+.registration-mark::after {
+  top: 50%;
+  left: 50%;
+  background: var(--ink);
+  transform: translate(-50%, -50%);
+}
+
+.registration-mark::before {
+  width: 100%;
+  height: 1px;
+}
+
+.registration-mark::after {
+  width: 1px;
+  height: 100%;
+}
+
 .work-section {
+  grid-area: work;
   scroll-margin-top: 6rem;
   padding: clamp(1.25rem, 2.4vw, 2rem);
-  color: var(--graphite);
-  background: var(--paper);
-  animation: sheet-enter 540ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+  background: var(--paper-raised);
+  border: 2px solid var(--blue);
 }
 
 .work-heading {
@@ -254,6 +391,7 @@ a:focus-visible {
 
 .work-heading h2 {
   margin: 0;
+  color: var(--blue);
   font-family: var(--display-font);
   font-size: 2rem;
   font-weight: 700;
@@ -263,14 +401,14 @@ a:focus-visible {
 
 .work-heading p {
   margin: 0.4rem 0 0;
-  color: #4a4b43;
+  color: var(--ink-soft);
   font-size: 0.91rem;
 }
 
 .work-count {
   flex: none;
   padding-bottom: 0.1rem;
-  color: #4a4b43;
+  color: var(--ink-soft);
   font-family: var(--display-font);
   font-size: 0.84rem;
   font-weight: 600;
@@ -282,19 +420,19 @@ a:focus-visible {
 .project-manual {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  border-top: 1px solid var(--rule);
+  border-top: 2px solid var(--blue);
 }
 
 .project-register {
   align-self: stretch;
   margin: 0;
   padding: 0 1rem 0 0;
-  border-right: 1px solid var(--rule);
+  border-right: 1px solid var(--blue);
   list-style: none;
 }
 
 .project-register li + li {
-  border-top: 1px solid var(--rule);
+  border-top: 1px solid var(--pink);
 }
 
 .project-record {
@@ -304,7 +442,7 @@ a:focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.85rem 0.85rem;
+  padding: 0.85rem;
   border: 0;
   background: transparent;
   text-align: left;
@@ -313,19 +451,28 @@ a:focus-visible {
 }
 
 .project-record:hover:not([aria-pressed="true"]) {
-  background: var(--paper-deep);
+  background: var(--paper-shade);
 }
 
 .project-record[aria-pressed="true"] {
-  background: var(--signal);
+  color: var(--ink);
+  background: var(--yellow);
+  outline: 2px solid var(--blue);
+  outline-offset: -2px;
+}
+
+.project-record[aria-pressed="true"] .record-action {
+  color: var(--ink);
 }
 
 .project-record:focus-visible {
+  outline: 3px solid var(--blue);
   outline-offset: -3px;
 }
 
 .record-copy {
   display: grid;
+  min-width: 0;
   gap: 0.15rem;
 }
 
@@ -333,10 +480,11 @@ a:focus-visible {
   font-size: 0.96rem;
   font-weight: 700;
   line-height: 1.3;
+  overflow-wrap: anywhere;
 }
 
 .record-category {
-  color: #4a4b43;
+  color: var(--ink-soft);
   font-size: 0.78rem;
   line-height: 1.35;
 }
@@ -346,6 +494,7 @@ a:focus-visible {
   flex: none;
   align-items: center;
   gap: 0.35rem;
+  color: var(--blue);
   font-size: 0.75rem;
   font-weight: 700;
 }
@@ -369,6 +518,7 @@ a:focus-visible {
 
 .inspection-heading h3 {
   margin: 0;
+  color: var(--blue);
   font-family: var(--display-font);
   font-size: clamp(1.65rem, 2.4vw, 2.25rem);
   font-weight: 700;
@@ -379,7 +529,7 @@ a:focus-visible {
 
 .inspection-category {
   flex: none;
-  color: #4a4b43;
+  color: var(--ink-soft);
   font-size: 0.78rem;
   font-weight: 600;
   text-align: right;
@@ -397,7 +547,7 @@ a:focus-visible {
   gap: 1rem;
   margin: 0;
   padding-block: 1rem;
-  border-top: 1px solid var(--rule);
+  border-top: 1px solid var(--pink);
 }
 
 .inspection-facts > div {
@@ -407,7 +557,7 @@ a:focus-visible {
 }
 
 .inspection-facts dt {
-  color: #4a4b43;
+  color: var(--ink-soft);
   font-size: 0.77rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -430,7 +580,7 @@ a:focus-visible {
 
 .technology-list li + li::before {
   margin-right: 0.75rem;
-  color: #74746c;
+  color: var(--blue);
   content: "/";
 }
 
@@ -439,14 +589,11 @@ a:focus-visible {
   align-items: center;
   gap: 0.5rem;
   margin-top: 0.15rem;
+  color: var(--blue);
   font-size: 0.91rem;
   font-weight: 700;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.25em;
-}
-
-.source-link:hover {
-  color: var(--cobalt);
 }
 
 .empty-projects {
@@ -457,8 +604,8 @@ a:focus-visible {
 
 .practice-section {
   scroll-margin-top: 6rem;
-  color: var(--graphite);
-  background: var(--signal);
+  color: var(--ink);
+  background: var(--yellow);
 }
 
 .practice-inner,
@@ -496,7 +643,7 @@ a:focus-visible {
   gap: 0.65rem;
   margin: 0;
   padding-top: 1rem;
-  border-top: 1px solid rgb(34 36 31 / 45%);
+  border-top: 1px solid rgb(23 36 58 / 55%);
   font-size: 0.88rem;
   font-weight: 600;
 }
@@ -520,6 +667,7 @@ a:focus-visible {
 }
 
 .about-section h2 {
+  color: var(--blue);
   font-size: clamp(2.5rem, 5.4vw, 4.25rem);
 }
 
@@ -540,12 +688,14 @@ a:focus-visible {
   display: grid;
   gap: 0.05rem;
   margin-top: 2.25rem;
+  color: var(--blue);
   font-family: var(--display-font);
   font-size: 1.5rem;
   font-weight: 700;
 }
 
 .about-signoff span {
+  color: var(--ink-soft);
   font-family: var(--body-font);
   font-size: 0.87rem;
   font-weight: 500;
@@ -553,8 +703,8 @@ a:focus-visible {
 
 .contact-section {
   scroll-margin-top: 6rem;
-  color: #fff;
-  background: var(--cobalt);
+  color: var(--ink);
+  background: var(--pink);
 }
 
 .contact-inner {
@@ -568,24 +718,18 @@ a:focus-visible {
 .contact-section p {
   max-width: 42ch;
   margin: 1.5rem 0 0;
-  color: #fff;
+  color: var(--ink);
   font-size: clamp(1.05rem, 1.45vw, 1.2rem);
 }
 
 .contact-actions > a:last-child {
-  color: #fff;
-  font-weight: 600;
+  color: var(--ink);
+  font-weight: 700;
   text-underline-offset: 0.25em;
 }
 
-.manual-header a:focus-visible,
-.opening-section a:focus-visible,
 .contact-section a:focus-visible {
-  outline-color: var(--signal);
-}
-
-.site-footer a:focus-visible {
-  outline-color: var(--signal);
+  outline-color: var(--ink);
 }
 
 .site-footer {
@@ -594,8 +738,12 @@ a:focus-visible {
   justify-content: space-between;
   gap: 1rem;
   padding: 1.4rem max(2.25rem, calc((100% - 1440px) / 2));
-  color: #fff;
-  background: var(--graphite);
+  color: var(--paper);
+  background: var(--blue);
+}
+
+.site-footer a:focus-visible {
+  outline-color: var(--paper);
 }
 
 .site-footer p {
@@ -604,25 +752,14 @@ a:focus-visible {
 }
 
 .site-footer a:hover {
-  color: var(--signal);
-}
-
-@keyframes sheet-enter {
-  from {
-    opacity: 0.82;
-    transform: translateY(12px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  color: var(--paper);
+  text-decoration-color: var(--yellow);
 }
 
 @media (max-width: 1050px) {
   .opening-grid {
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-    gap: 2rem;
+    grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.85fr);
+    gap: 3rem 2rem;
   }
 
   .project-manual {
@@ -635,7 +772,7 @@ a:focus-visible {
   }
 
   .inspection-sheet {
-    border-top: 1px solid var(--rule);
+    border-top: 1px solid var(--pink);
   }
 }
 
@@ -673,11 +810,14 @@ a:focus-visible {
   }
 
   .opening-grid {
+    grid-template-areas:
+      "copy"
+      "art"
+      "work";
     grid-template-columns: minmax(0, 1fr);
     width: min(100% - 2.5rem, 680px);
-    min-height: 0;
-    gap: 3rem;
-    padding-block: 4rem 4.5rem;
+    gap: 2rem;
+    padding-block: 3.5rem 4rem;
   }
 
   .opening-copy {
@@ -686,6 +826,11 @@ a:focus-visible {
 
   .opening-copy h1 {
     font-size: clamp(4.5rem, 13vw, 6rem);
+  }
+
+  .print-art {
+    width: min(100%, 30rem);
+    min-height: clamp(16rem, 48vw, 21rem);
   }
 
   .work-section {
@@ -714,18 +859,31 @@ a:focus-visible {
 }
 
 @media (max-width: 480px) {
+  .header-inner {
+    width: min(100% - 2rem, 1440px);
+  }
+
+  .wordmark {
+    font-size: 1.13rem;
+  }
+
+  .wordmark span {
+    display: block;
+    font-size: 0.64rem;
+  }
+
   .opening-grid {
     width: min(100% - 2rem, 680px);
-    gap: 2.5rem;
-    padding-block: 3.25rem;
+    gap: 1.75rem;
+    padding-block: 2.75rem 3rem;
   }
 
   .opening-copy h1 {
-    font-size: clamp(4rem, 18vw, 5rem);
+    font-size: clamp(3.45rem, 14vw, 4.4rem);
   }
 
   .opening-intro {
-    margin-top: 1.5rem;
+    margin-top: 1.35rem;
     font-size: 1rem;
   }
 
@@ -740,6 +898,10 @@ a:focus-visible {
     min-height: 48px;
     padding-inline: 0.9rem;
     font-size: 0.88rem;
+  }
+
+  .print-art {
+    min-height: 15rem;
   }
 
   .work-heading {
@@ -803,5 +965,12 @@ a:focus-visible {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+@media (forced-colors: active) {
+  button:focus-visible,
+  a:focus-visible {
+    outline-color: Highlight;
   }
 }

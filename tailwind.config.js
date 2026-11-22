@@ -17,11 +17,11 @@ module.exports = {
     },
     extend: {
       colors: {
-        cobalt: "#1E45D6",
-        signal: "#F0F83D",
-        paper: "#F4F3EB",
-        graphite: "#22241F",
-        rule: "#D3D2C8",
+        paper: "#FFF6E8",
+        pink: "#FF3EA5",
+        blue: "#1E4FFF",
+        yellow: "#FFD22A",
+        ink: "#17243A",
       },
       fontFamily: {
         sans: ["var(--font-body)", "Arial", "sans-serif"],
